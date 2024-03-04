@@ -33,6 +33,7 @@ const SearchBar = ({ searchCallback, searchHits, searchLoaded, currPage }) => {
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef);
 
+  // Map all query results onto search results
   const mapHits = () => {
     return searchHits.map((searchHit, idx) => {
       return <Link to={`/details/${currPage}/${searchHit.id}`} key={idx} onClick={e => {

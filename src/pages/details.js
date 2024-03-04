@@ -13,9 +13,10 @@ function Details() {
 
     let { id, currPage } = useParams();
   
-    async function fetchData(page) {
+    async function fetchData() {
       try {
         setIsLoading(true)
+        // query based on art id. Additionally only return relevant fields
         const { data: { data } } = await axios.get(`https://api.artic.edu/api/v1/artworks/${id}?fields=dimensions,title,artist_display,date_display,main_reference_number,thumbnail`);
 
         setApiData(data);
@@ -25,6 +26,7 @@ function Details() {
       }
     }
   
+    // Fetch Details on mount
     useEffect(() => {
       fetchData();
     }, []);

@@ -13,22 +13,24 @@ const PAGE_LIMIT = 10
 function Home() {
     let { page } = useParams();
 
+    // Table data related states
     const [apiData, setApiData] = useState([]);
     const [paginationData, setPaginationData] = useState({});
-    const [currPage, setCurrPage] = useState(page ?? 1)
+    // default to page 1 if no page parameter is present
+    const [currPage, setCurrPage] = useState(page ?? 1);
+    const [isLoading, setIsLoading] = useState(false);
 
-    // Query related
+    // Query related states
     const [query, setQuery] = useState('');
-    const [queryLoaded, setQueryLoaded] = useState(false)
+    const [queryLoaded, setQueryLoaded] = useState(false);
     const [queryRes, setQueryRes] = useState([]);
 
-    const [isLoading, setIsLoading] = useState(true);
   
     async function fetchData() {
       try {
         setIsLoading(true)
+        // Query by page limit and page number. Addtionally only include relevant fields
         const { data: { data, pagination } } = await axios.get(`https://api.artic.edu/api/v1/artworks?page=${currPage}&limit=${PAGE_LIMIT}&fields=id,title,thumbnail`);
-        console.log(data)
 
         setApiData(data);
         setPaginationData(pagination)
@@ -38,19 +40,27 @@ function Home() {
       }
     }
   
+    // Query everytime a page is changed
     useEffect(() => {
-      fetchData();
+        if (!isLoading) {
+            fetchData();
+        }
     }, [currPage]);
 
+    /*
+    * Query title based on search provided by the user.
+    */
     const getArtByTitle = async () => {
-        setQueryLoaded(false)
+        setQueryLoaded(false);
         const { data: { data  } } = await axios.get(`https://api.artic.edu/api/v1/artworks/search?q=${query}`);
         setQueryRes(data);
-        setQueryLoaded(true)
+        setQueryLoaded(true);
     }
 
     useEffect(() => {
-        getArtByTitle()
+        if (queryLoaded) {
+            getArtByTitle()
+        }
     }, [query]);
 
    return (
