@@ -1,39 +1,30 @@
-# react-coding-challenge
-# Delivery React Coding Challenge
+# ClearBridge Mobile React coding challenge
 
-## 1. Goal
+I've pushed all my changes in regards to the challenge
 
-Your goal is to build a react app that displays a list of books. We will provide guidelines and feature requests below, but ultimately the design and functionality of your app is up to you. Keep in mind functionality and code quality is more important than asthetic design.  The code you write should be maintanable and easy to understand.
+## Design
+I have went along with using regular CSS module styling on this application. At first I was going to use material-UI to provide a better look towards the application, but I wanted to express my theme along with have more control in the CSS of the application.
 
-## 2. Instructions
+In terms of a theme palette, I have gone with the following:
+ Deft Blue: #454B66
+ Glaucous: #677DB7
+ Vista Blue: #9CA3DB
+ Smoky Black: #191308
 
-Please read through the rest of the requirements and additional info before working on your app.
+## Components
 
-You can use third party libraries, but the more code you write yourself, the better.
+In terms of components. I've only found use for seperating the search bar component, as its utility is better off seperated. Since we are not recyling many components I've decided to keep the code as is for the details and index page but instead reuse the main.module.css styling to crunch time.
 
-You have **1 day** to submit your code, however we want to be respectful of your time and do **not** expect you to work for more than **2 hours** on this challenge.
+## Packages
+In terms of packages used, I have not used any packages other than react router dom for naivigation between pages and axios to fetch api calls.
 
-When you are finished please submit a pull request.
+## Optimization approach
+In order to ensure optimization between api calls, I've made sure to limit how much data I am getting based on what required fields I am looking for.
 
-## 3. Basic Requirements
+## Extras
 
-- Create a single page react application using responsive design (the application should render properly on a desktop and mobile device).
-- The application should use the [following](https://api.artic.edu/docs/#quick-start) API to retrieve a set of artwork
-- The artworks should be listed 10/page with pagination
-- Each item title and thumbnail should be clickable to bring up the artwork detail page
-- Display details about the item on a separate page and have a back button to return to the list page and display the page the user was on
-- List the following items on the detail page: _title,artist_display,date_display,main_reference_number, thubnail, dimensions_
-- Implement the ability to search the artwork by title and the ability to filter the results by category
-- Document your design decisions
-- You can create components from scratch or you can use a component library but the more code you write yourself, the better
-- Create a comments form to demonstrate data validation, the form does not need to make an API call to persist the data.
-- using TypeScript is a bonus but not required
+I've added focus to the search bar to make sure we don't have the search get in the way with the table. Additionally, I have added a loading section in between api calls to keep the platform more user friendly instead of having a static screen while the user waits whenever next is pressed.
 
-## Evaluation Criteria
+## Missing
+I am missing the category filter along with the data validation comments. I am not 100% sure on how to approach these two problems but I am happy to discuss with the team on how to approach these.
 
-- Understanding of core Javascript concepts
-- Optimized and performant code
-- Understanding of the React library
-- Code and component reuse/extensibility
-- Code design
-- Ability to write clear documentation

@@ -1,0 +1,86 @@
+body {
+    background-color: #9CA3DB;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: #9CA3DB;
+}
+
+.mainContainer h4 {
+    margin-top: 0px;
+    color: #191308;
+}
+
+.mainContainer h2 {
+    margin-bottom: 4px;
+    color: #191308;
+}
+
+.mainContentContainer {
+    position: relative;
+    min-height: 600px;
+    max-width: 500px;
+    border: 1px solid #322A26;
+    border-radius: 18px;
+    padding: 10px;
+    background-color: #c2c8f5;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 24px;
+}
+
+.row {
+    display: flex;
+    width: auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.paginationContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.paginationButton {
+    background-color: #677DB7;
+}
+
+.paginationButton:hover {
+    background-color: #454B66;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+
+
+    .mainContentContainer {
+        min-height: 100%;
+        max-width: 90%;
+    }
+
+    .row p {
+        margin: 8px;
+    }
+  }
