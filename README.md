@@ -6,20 +6,22 @@ I've pushed all my changes in regards to the challenge
 I have went along with using regular CSS module styling on this application. At first I was going to use material-UI to provide a better look towards the application, but I wanted to express my theme along with have more control in the CSS of the application.
 
 In terms of a theme palette, I have gone with the following:
- Deft Blue: #454B66
- Glaucous: #677DB7
- Vista Blue: #9CA3DB
- Smoky Black: #191308
+  -Deft Blue: #454B66
+  -Glaucous: #677DB7
+  -Vista Blue: #9CA3DB
+  -Smoky Black: #191308
 
 ## Components
 
-In terms of components. I've only found use for seperating the search bar component, as its utility is better off seperated. Since we are not recyling many components I've decided to keep the code as is for the details and index page but instead reuse the main.module.css styling to crunch time.
+In terms of components. I've only found use for seperating the search bar component, as its utility is better off seperated for reusability. Since we are not recyling many components, and I was crunching time, I've decided to keep the code as is for the details and index page but instead reuse the main.module.css styling.
 
 ## Packages
 In terms of packages used, I have not used any packages other than react router dom for naivigation between pages and axios to fetch api calls.
 
 ## Optimization approach
 In order to ensure optimization between api calls, I've made sure to limit how much data I am getting based on what required fields I am looking for.
+
+To prevent useEffect from calling a function multiple times on mount or on change, I've made sure to add an if statement based on an isLoading state that will ensure the useEffect doesn't get used multiple times.
 
 ## Extras
 
